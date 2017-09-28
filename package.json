@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"dev": "node_modules/.bin/webpack-dev-server --progress --colors --hot --port 3000",
+	"dev": "node_modules/.bin/webpack-dev-server --progress --colors --inline --hot --port 9090",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

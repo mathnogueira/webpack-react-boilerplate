@@ -15,7 +15,6 @@ let config = {
 	devtool: 'eval-source-map',
 	entry: [
 		'webpack-dev-server/client?http://localhost:9090',
-		'webpack/hot/only-dev-server',
 		'react-hot-loader/patch',
 		path.join(__dirname, 'app/index.jsx'),
 		path.join(__dirname, 'styles/style.sass')
@@ -25,6 +24,11 @@ let config = {
 		filename: 'bundle.js',
 		publicPath: '/'
 	},
+	devServer: {
+		port: 9090,
+		inline: true,
+		publicPath: '/'
+	},
 	plugins: [
 		extractSass,
 		new CopyWebpackPlugin([
@@ -32,7 +36,6 @@ let config = {
 		]),
 		new WebpackDashboard(),
 		new webpack.optimize.OccurrenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
 	],
 	module: {
