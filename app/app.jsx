@@ -1,28 +1,28 @@
 import React from 'react';
 import { AppContainer } from 'react-hot-loader';
+import PropTypes from 'prop-types';
 
 export class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-
-		this.add = this.add.bind(this);
-		this.state = { count: 0 };
-	}
-
-	add() {
-		let counter = this.state.count + 1;
-		this.setState({count: counter});
 	}
 
 	render() {
 		return (
 			<AppContainer>
 				<div>
-					<p>This is awesome! Your pressed it {this.state.count} times!</p>
-					<button onClick={this.add}>Add one!</button>
+					<p>{this.props.message}</p>
+					<p>Counter: {this.props.count}</p>
+					<button onClick={this.props.onAdd}>Add one!</button>
 				</div>
 			</AppContainer>
 		);
 	}
 }
+
+App.propTypes = {
+	message: PropTypes.string.isRequired,
+	count: PropTypes.number.isRequired,
+	onAdd: PropTypes.func.isRequired
+};
